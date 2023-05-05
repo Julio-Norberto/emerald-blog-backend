@@ -4,7 +4,8 @@
   "info": {
     "singularName": "post",
     "pluralName": "posts",
-    "displayName": "post"
+    "displayName": "post",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,11 +22,12 @@
       "required": true
     },
     "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "excerpt": {
       "type": "text",
@@ -41,22 +43,32 @@
       "default": true,
       "required": true
     },
-    "tags": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::tag.tag",
-      "inversedBy": "posts"
+    "authorName": {
+      "type": "string",
+      "required": true
     },
-    "categories": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::category.category",
-      "inversedBy": "posts"
+    "authorPhoto": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "categoryPost": {
+      "type": "string",
+      "required": true
     },
     "author": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::author.author",
+      "inversedBy": "posts"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
       "inversedBy": "posts"
     }
   }
