@@ -22,18 +22,33 @@
       "required": true
     },
     "photo": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "posts": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::post.post",
       "mappedBy": "author"
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "linkedinURL": {
+      "type": "string",
+      "required": false
+    },
+    "instagramURL": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
     }
   }
 }
